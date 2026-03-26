@@ -16,7 +16,7 @@ export default function LoginPage() {
       const res = await api.post("/auth/login", { email, password });
       
       // Save token to cookie (Middleware-free approach)
-      Cookies.set("token", res.data.token, { expires: 7 }); 
+      localStorage.setItem("token", res.data.token); 
       
       // Navigate to dashboard
       router.push("/dashboard");
